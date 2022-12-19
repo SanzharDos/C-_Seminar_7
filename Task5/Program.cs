@@ -72,6 +72,22 @@ int Sum2(int[,] array)
     return sum2;
 }
 
+int Sum3(int[,] array)
+{
+    int sum3 = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array.GetLength(0) - 1 - i == j)
+            {
+                sum3 = sum3 + array[i, j];
+            }
+        }
+    }
+    return sum3;
+}
+
 
 Console.WriteLine("Введите количество строк двумерного массива:");
 int rows = Convert.ToInt32(Console.ReadLine());
@@ -83,3 +99,4 @@ Console.WriteLine($"Сгенерирован массив из {array.GetLength(
 PrintArray(array);
 Console.WriteLine($"Сумма элементов по главной диагонали массива равна = {Sum1(array)}");
 Console.WriteLine($"Сумма элементов по обратной диагонали массива равна = {Sum2(array)}");
+Console.WriteLine($"При альтернативном решении сумма элементов по обратной диагонали массива также равна = {Sum3(array)}");
